@@ -7,6 +7,7 @@
 <meta charset="utf-8">
 <link type="text/css" href="css/main.css" rel="Stylesheet" />
 <script src="js/jquery-1.8.0.min.js"></script>
+<script src="js/jquery-ui-1.9.0.custom.min.js" type="text/javascript"></script>
 <script src="js/jquery.isotope.js"></script>
 
 
@@ -18,89 +19,151 @@
 <body>  
 
 	<div id="container">
+
+		<div class="item main"  data-category="first">
+			<div class="name">Jean-Baptiste Pettit</div>
+			<div>3rd year PhD Student @<a href="http://www.ebi.ac.uk" target="_blank">EBI</a></div>
+		</div>
+
+		<script>
+
+
+			var $container = $('#container');
+			var pastel = ["#FFECEC","#FFEEFB","#F1ECFF","#F4D2F4","#EFEDFC","#DBF0F7","#ECF4FF","#F3F8F4","#FFF4EA","#F8F1F1","#EFF9FC","#FFEAEA","#F5F5E2","#EEDCC8","#FFF2D9","#F3F8F4","#E1E1FF"];
+			var numDummy =0;
+			while(numDummy<Math.floor(Math.random()*7+2)){
+				var height = Math.random()*150+50;
+				var width = Math.random()*150+50;
+				var color = pastel[Math.floor(Math.random()*pastel.length)];
+				var $newItems = $('<div style="height:'+height+'px;width:'+width+'px;background:'+color+'" class="item dummy"></div>');
+				$container.append( $newItems );
+				numDummy++;
+			}
+		</script>
+
 		<div class="item info">
 			<div class="overview">
-				Bio details
+				<img class="imgHov" src="img/logo.svg" style="width:100%;height:100%;float:left">
+				<span class="descriText">Bio</span>
 			</div>
 			<div class="details">
-				Bio details
+				Bio/Career Path and CV<img src="img/logo.svg" style="width:100px;height:100px;float:right">
 			</div>
 		</div>
+
+		<script>
+			var numDummy =0;
+			while(numDummy<Math.floor(Math.random()*7+2)){
+				var height = Math.random()*150+50;
+				var width = Math.random()*150+50;
+				var color = pastel[Math.floor(Math.random()*pastel.length)];
+				var $newItems = $('<div style="height:'+height+'px;width:'+width+'px;background:'+color+'" class="item dummy"></div>');
+				$container.append( $newItems );
+				numDummy++;
+			}
+		</script>
+
 		<div class="item info">
 			<div class="overview">
-				Projects
+				<img src="img/bulb.svg" style="width:100%;height:100%;float:left">
 			</div>
 			<div class="details">
-				Projects details
+				Projects details<img src="img/bulb.svg" style="width:100px;height:100px;float:right">
 			</div>
 		</div>
+
+
+		<script>
+			var numDummy =0;
+			while(numDummy<Math.floor(Math.random()*7+2)){
+				var height = Math.random()*150+50;
+				var width = Math.random()*150+50;
+				var color = pastel[Math.floor(Math.random()*pastel.length)];
+				var $newItems = $('<div style="height:'+height+'px;width:'+width+'px;background:'+color+'" class="item dummy"></div>');
+				$container.append( $newItems );
+				numDummy++;
+			}
+		</script>
+
 		<div class="item info">
 			<div class="overview">
-				Publications
+				<img src="img/speak.svg" style="width:100%;height:100%;float:left">
 			</div>
 			<div class="details">
-				Publications details
+				Publications details<img src="img/speak.svg" style="width:100px;height:100px;float:right">
 			</div>
 		</div>
+
+		<script>
+			var numDummy =0;
+			while(numDummy<Math.floor(Math.random()*7+2)){
+				var height = Math.random()*150+50;
+				var width = Math.random()*150+50;
+				var color = pastel[Math.floor(Math.random()*pastel.length)];
+				var $newItems = $('<div style="height:'+height+'px;width:'+width+'px;background:'+color+'" class="item dummy"></div>');
+				$container.append( $newItems );
+				numDummy++;
+			}
+		</script>
+
 		<div class="item info">
 			<div class="overview">
-				Side projects
+				<img src="img/info.svg" style="width:100%;height:100%;float:left">
 			</div>
 			<div class="details">
-				Side projects details
+				Contacts details<img src="img/info.svg" style="width:100px;height:100px;float:right">
 			</div>
 		</div>
-		<div class="item info">
-			<div class="overview">
-				Contacts
-			</div>
-			<div class="details">
-				Contacts details
-			</div>
+
+		<script>
+			var numDummy =0;
+			while(numDummy<Math.floor(Math.random()*7+2)){
+				var height = Math.random()*150+50;
+				var width = Math.random()*150+50;
+				var color = pastel[Math.floor(Math.random()*pastel.length)];
+				var $newItems = $('<div style="height:'+height+'px;width:'+width+'px;background:'+color+'" class="item dummy"></div>');
+				$container.append( $newItems );
+				numDummy++;
+			}
+		</script>
 	</div>
+
 	
 	
 <script>
 
-	var $container = $('#container');
-	
-	  // add randomish size classes
-      $container.find('.item').each(function(){
-        var $this = $(this),
-            number = parseInt( $this.find('.number').text(), 10 );
-        if ( number % 7 % 2 === 1 ) {
-          $this.addClass('width2');
-        }
-        if ( number % 3 === 0 ) {
-          $this.addClass('height2');
-        }
-      });
+
+
 	  
 	$container.isotope({
 	// options
 	itemSelector : '.item',
 	layoutMode : 'masonry',
+
 	resizesContainer :true,
-	containerStyle :{ position: 'relative', overflow: 'hidden' }
+	containerStyle :{ position: 'relative', overflow: 'hidden'}
+	});
+
+	$('.imgHov').bind('hover',function(event) {
+		
 	});
 	
-	alert(Math.floor(window.innerWidth/parseInt($('.item').css('width'),10)));
-	var numWidth = Math.floor(window.innerWidth/(parseInt($('.item').css('width'),10)+parseInt($('.item').css('margin-right'),10)));
-	var numHeight = Math.floor(window.innerHeight/(parseInt($('.item').css('height'),10)+parseInt($('.item').css('margin-bottom'),10)));
-	for(var i=0;i<(numWidth*numHeight)-$('.info').length;i++){
-		var $newItems = $('<div class="item dummy"></div>');
-		$container.append( $newItems ).isotope( 'appended', $newItems );
-		
-	}
-	
 	$container.isotope('shuffle');
-	
+$('#container').isotope({ sortBy : 'symbol' });
+
 	$('.info').bind("click", function (event) {
 		$(this).toggleClass('selected');
 		$(this).find('.details').toggle();
 		$(this).find('.overview').toggle();
 		$container.isotope( 'reLayout');
 	});
+
+
+	$(window).resize(function() {
+		$container.isotope( 'reLayout');
+	});
+
+
 </script>
 </body>
 </html>
