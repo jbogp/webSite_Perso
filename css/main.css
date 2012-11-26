@@ -1,0 +1,118 @@
+body {
+		background-color: #ffffff;
+		margin: 10px;
+		overflow: hidden;
+		font-family:arial,sans-serif;
+		height:100%;
+		width:100%;
+}
+
+/* Start: Recommended Isotope styles */
+
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+#container{
+
+}
+
+/* End: Recommended Isotope styles */
+
+.item {
+  width: 100px;
+  height: 100px;
+  margin-bottom : 10px;
+  margin-right:10px;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  color: #222;
+    -webkit-border-radius: 1.2em;
+      -moz-border-radius: 1.2em;
+          border-radius: 1.2em;
+  -webkit-border-top-left-radius: 0em;
+      -moz-border-radius-topleft: 0em;
+          border-top-left-radius: 0em;
+}
+
+.notselected {
+
+}
+
+.selected{
+  width: 200px;
+  height: 200px;
+  margin-bottom : 20px;
+  margin-right:1px;
+}
+
+
+.overview{
+}
+
+.details {
+	display:none;
+}
+
+.dummy{
+  background: #ccc;
+}
+
+.dummy:hover{
+  background: #aaa;
+}
+
+.info:hover{
+  background: #06F;
+}
+
+.info{
+  background: #08F;
+}

@@ -5,13 +5,102 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Jean-Baptiste Pettit</title>
 <meta charset="utf-8">
-<style>
+<link type="text/css" href="css/main.css" rel="Stylesheet" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<script src="js/jquery.isotope.js"></script>
 
-</style>
+
+
+
 
 </head>
 
 <body>  
 
+	<div id="container">
+		<div class="item info">
+			<div class="overview">
+				Bio details
+			</div>
+			<div class="details">
+				Bio details
+			</div>
+		</div>
+		<div class="item info">
+			<div class="overview">
+				Projects
+			</div>
+			<div class="details">
+				Projects details
+			</div>
+		</div>
+		<div class="item info">
+			<div class="overview">
+				Publications
+			</div>
+			<div class="details">
+				Publications details
+			</div>
+		</div>
+		<div class="item info">
+			<div class="overview">
+				Side projects
+			</div>
+			<div class="details">
+				Side projects details
+			</div>
+		</div>
+		<div class="item info">
+			<div class="overview">
+				Contacts
+			</div>
+			<div class="details">
+				Contacts details
+			</div>
+	</div>
+	
+	
+<script>
+
+	var $container = $('#container');
+	
+	  // add randomish size classes
+      $container.find('.item').each(function(){
+        var $this = $(this),
+            number = parseInt( $this.find('.number').text(), 10 );
+        if ( number % 7 % 2 === 1 ) {
+          $this.addClass('width2');
+        }
+        if ( number % 3 === 0 ) {
+          $this.addClass('height2');
+        }
+      });
+	  
+	$container.isotope({
+	// options
+	itemSelector : '.item',
+	layoutMode : 'masonry',
+	resizesContainer :true,
+	containerStyle :{ position: 'relative', overflow: 'hidden' }
+	});
+	
+	alert(Math.floor(window.innerWidth/parseInt($('.item').css('width'),10)));
+	var numWidth = Math.floor(window.innerWidth/(parseInt($('.item').css('width'),10)+parseInt($('.item').css('margin-right'),10)));
+	var numHeight = Math.floor(window.innerHeight/(parseInt($('.item').css('height'),10)+parseInt($('.item').css('margin-bottom'),10)));
+	for(var i=0;i<(numWidth*numHeight)-$('.info').length;i++){
+		var $newItems = $('<div class="item dummy"></div>');
+		$container.append( $newItems ).isotope( 'appended', $newItems );
+		
+	}
+	
+	$container.isotope('shuffle');
+	
+	$('.info').bind("click", function (event) {
+		$(this).toggleClass('selected');
+		$(this).find('.details').toggle();
+		$(this).find('.overview').toggle();
+		$container.isotope( 'reLayout');
+	});
+</script>
 </body>
 </html>
